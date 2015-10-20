@@ -7,9 +7,16 @@
 
 	mapArray = function (array, callback, ctx) {
         var newArr = [];
-        
+
         // add code for maping
-        
+				for(var i = 0; i < array.length; i++) {
+					// if(ctx) {
+					// 	callback.apply(ctx);
+					// }
+
+					newArr[i] = callback(array[i], i, array);
+				}
+
         return newArr;
 	};
 
