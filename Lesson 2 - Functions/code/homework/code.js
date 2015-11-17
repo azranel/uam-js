@@ -59,8 +59,56 @@
 				return aircraft.services.length > 0;
 			});
     };
-
 }(window));
+
+
+
+var bindEvents = function() {
+	var addAircraftButton = document.getElementById("aircraft__code-submit");
+
+	var updateUI = function() {
+		var aircraftsNumberElement = document.getElementById("aircrafts__number");
+		var aircraftsSection = document.getElementById("aircrafts");
+
+		var aircraftsElements = [];
+		UAM.aircrafts.forEach(function(aircraft) {
+			aircraftsElements.push(
+				"<div>" + aircraft.code + "</div>" +
+				"<button class='aircraft__remove-btn' data-aircraft-index='" + UAM.aircrafts.indexOf(aircraft) + "'>Remove aircraft</button>"
+			);
+		});
+
+		aircraftsNumberElement.innerHTML = "Aircrafts count: " + String(UAM.aircrafts.length);
+		aircraftsSection.innerHTML = aircraftsElements.join('');
+
+		var removeAircraftButtons = document.getElementsByClassName("aircraft__remove-btn");
+		for(var i = 0; i < removeAircraftButtons.length; i++) {
+			removeAircraftButtons[i].addEventListener("click", function(e) {
+				var aircraftIndex = e.target.dataset.aircraftIndex;
+				var aircraftToRemove = UAM.aircrafts[aircraftIndex];
+				UAM.removeAircraft(aircraftToRemove);
+				updateUI();
+			});
+		}
+	};
+
+	addAircraftButton.addEventListener("click", function() {
+		var code = document.getElementById("aircraft__code-input").value;
+		if(code === '') {
+			alert("Code can't be blank!");
+			return;
+		}
+		UAM.addAircraft(code);
+		updateUI();
+	});
+
+
+
+	updateUI();
+
+};
+
+document.addEventListener('DOMContentLoaded', bindEvents, false);
 
 /*
 
