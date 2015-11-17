@@ -20,3 +20,16 @@
   order: 1;
   background-color: #f1ff98;
 }
+
+.aircraft__code {
+  text-align: center;
+  font-size: 20px;
+}
+
+.aircraft__remove-btn {
+  float: right;
+  margin-right: 10px;
+  color: WHITE;
+  background-color: RED;
+  border: none;
+}
