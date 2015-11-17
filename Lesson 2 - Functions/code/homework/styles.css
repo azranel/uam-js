@@ -5,3 +5,18 @@
 .title {
   text-align: center;
 }
+
+#aircrafts {
+  background-color: BLUE;
+  border-radius: 20px 20px 20px 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.aircraft {
+  width: 280px;
+  height: 200px;
+  margin: 20px 20px 20px 20px;
+  order: 1;
+  background-color: #f1ff98;
+}

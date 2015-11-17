@@ -73,8 +73,12 @@ var bindEvents = function() {
 		var aircraftsElements = [];
 		UAM.aircrafts.forEach(function(aircraft) {
 			aircraftsElements.push(
-				"<div>" + aircraft.code + "</div>" +
+				"<div class='aircraft'>" +
+				"<div class='aircraft__code'>" + aircraft.code + "</div>" +
 				"<button class='aircraft__remove-btn' data-aircraft-index='" + UAM.aircrafts.indexOf(aircraft) + "'>Remove aircraft</button>"
+				+ "<div class='aicraft__work'>"
+				+ "</div>"
+				+ "</div>"
 			);
 		});
 
@@ -92,7 +96,7 @@ var bindEvents = function() {
 		}
 	};
 
-	addAircraftButton.addEventListener("click", function() {
+	addAircraftButton.addEventListener("click", function(e) {
 		var code = document.getElementById("aircraft__code-input").value;
 		if(code === '') {
 			alert("Code can't be blank!");
@@ -101,8 +105,6 @@ var bindEvents = function() {
 		UAM.addAircraft(code);
 		updateUI();
 	});
-
-
 
 	updateUI();
 
