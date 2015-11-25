@@ -1,0 +1,36 @@
+body {
+  padding-top: 60px;
+}
+
+.column {
+  width: 40%;
+}
+
+input {
+  width: 100%;
+}
+
+#newTodo {
+  margin-bottom: 20px;
+}
+
+#todosList {
+  list-style: none;
+}
+
+#removeDoneTodos {
+  float: right;
+}
+
+.todo-data {
+  margin: 1em 1em 1em 1em;
+}
+
+.title {
+  text-align: center;
+}
+
+.striked-text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
